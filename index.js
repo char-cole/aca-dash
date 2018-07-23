@@ -12,13 +12,11 @@
 //add the returned value from iteratee tp myNewArray
 //after looping, return  myNewArray
 function map(array, iteratee){
-    if (typeof(array) === "array" && typeof(iteratee) === "function") {
-        const temporArray = [];
-        for (let i = 0; i < array.length; i++) { 
-            temporArray.push(iteratee(array[i]))
-        }
-        return temporArray;
-    }
+   const temporArray = [];
+      for (let i = 0; i < array.length; i++) { 
+           temporArray.push(iteratee(array[i]))
+       }
+       return temporArray;
 }
 
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
@@ -31,15 +29,13 @@ function map(array, iteratee){
 //iteratee will return true or false, if true add the item to myNewArray else do not
 //after looping, return myNewArray
 function filter(array, iteratee){
-    if (typeof(array) === "array" && typeof(iteratee) === "function") {
-        const temporArray = [];
-        for (let i = 0; i < array.length; i++) { 
-            if (iteratee(array[i]) === true) {
-                temporArray.push(array[i])
-            }
-        }
-        return temporArray;
+    const temporArray = [];
+    for (let i = 0; i < array.length; i++) { 
+       if (iteratee(array[i]) === true) {
+           temporArray.push(array[i])
+       }
     }
+    return temporArray;
 }
 
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
@@ -49,13 +45,11 @@ function filter(array, iteratee){
 //fnc will return true or false, if true return the item 
 //after looping, return null
 function find(theArray, fnc){
-    if (typeof(array) === "array" && typeof(fnc) === "function") {
-        for (let i = 0; i < array.length; i++) { 
-            if (fnc(array[i]) === true) {
-                return array[i]
-            } else if (i === (array.length - 1)) {
-                return null
-            }
+    for (let i = 0; i < theArray.length; i++) { 
+        if (fnc(theArray[i]) === true) {
+            return theArray[i]
+        } else if (i === (theArray.length - 1)) {
+            return null
         }
     }
 }
@@ -63,16 +57,12 @@ function find(theArray, fnc){
 
 //return the last item in theArray
 function findLast(theArray){
-    if (typeof(theArray) === "array") {
-        return theArray[array.length-1]
-    }
+    return theArray[theArray.length-1]
 }
 
 //return the first element of the array
 function head(theArray){
-    if (typeof(theArray) === "array") {
-        return theArray[0]
-    }
+    return theArray[0]
 }
 
 //create a new array
@@ -81,13 +71,11 @@ function head(theArray){
 //return the new array
 
 function reverse(theArray){
-    if (typeof(theArray) === "array") {
-        const temporArray = [];
-        for (let i = array.length-1; i >= 0; i--) { 
-            temporArray.push(array[i])
-        }
-        return temporArray
+    const temporArray = [];
+   for (let i = theArray.length-1; i >= 0; i--) { 
+        temporArray.push(theArray[i])
     }
+    return temporArray
 }
 
 //create a new array
@@ -95,13 +83,11 @@ function reverse(theArray){
 //add the item from each loop to the new array except the first item
 //return the new array
 function tail(theArray){
-    if (typeof(theArray) === "array") {
-        const temporArray = [];
-        for (let i = 1; i < array.length; i++) { 
-            temporArray.push(array[i])
-        }
-        return temporArray
+    const temporArray = [];
+    for (let i = 1; i < array.length; i++) { 
+        temporArray.push(array[i])
     }
+    return temporArray
 }
 
 //implement the most basic sorting algorithm there is
@@ -118,7 +104,7 @@ function sort(theArray){
     let swapped;
     console.log(theArray);
     do {
-      swapped = false;
+        swapped = false;
         for (let i = 0; i < theArray.length-1; i++) {
             let x = i+1
             if (theArray[i] > theArray[x]) {
