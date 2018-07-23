@@ -115,17 +115,22 @@ function tail(theArray){
 //after each for loop check the variable, if true, continue the while loop
 //if false return theArray
 function sort(theArray){
-    if (typeof(theArray) === "array") {
-        let swapped = false;
-        while (swapped = false)
-        for (let i = 0; i < array.length-1; i++) { 
-            if (array[i] > array[i+1]) {
-                let storage = array[i+1];
-                array[i+1] = array[i];
-                array[i] = storage;
+    let swapped;
+    console.log(theArray);
+    do {
+      swapped = false;
+        for (let i = 0; i < theArray.length-1; i++) {
+            let x = i+1
+            if (theArray[i] > theArray[x]) {
+                let storage = theArray[x];
+                theArray[x] = theArray[i];
+                theArray[i] = storage;
                 swapped = true;
+                console.log(theArray);   
             }
-    }
+        }
+    } while (swapped)
+    return theArray
 }
 
 exports.map = map;
